@@ -1,6 +1,6 @@
 # An Nguyen’s personal site
 
-This repository contains An Nguyen’s personal site and blog, published with Jekyll and GitHub Pages.
+This repository contains An Nguyen Van Chuc’s personal site, published with Jekyll and GitHub Pages.
 
 The site uses the [LightSpeed](https://github.com/tajacks/lightspeed) Jekyll theme, vendored from commit `d1aef2c573e4cb1a7d027936f20b881eb89db919`. LightSpeed is licensed under GPL-3.0; its license is included in [`COPYING`](COPYING). The original project license remains in [`LICENSE`](LICENSE).
 
