@@ -12,9 +12,7 @@ description: About An Nguyen Van Chuc
   <p>I enjoy learning how tools work, simplifying complex problems, and creating software that feels clear and dependable.</p>
 
   <div class="social-links" aria-label="Contact links">
-    <a href="https://github.com/annguyenwasd" rel="noopener noreferrer">GitHub</a>
     <a href="https://twitter.com/annguyenwasd" rel="noopener noreferrer">Twitter</a>
-    <a href="skype:live:an.nguyenwasd?chat">Skype</a>
     <a href="mailto:an.nguyenwasd@gmail.com">Email</a>
   </div>
 
