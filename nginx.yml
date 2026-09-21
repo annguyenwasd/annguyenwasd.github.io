@@ -1,5 +1,0 @@
-name: me
-domain-root: me.dev
-mappings:
-  - port: 8000
-    prefix:

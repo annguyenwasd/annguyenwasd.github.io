@@ -1,0 +1,25 @@
+---
+layout: default
+title: Posts
+permalink: /posts/
+pagination:
+  enabled: true
+---
+
+<div class="post-summary">
+    <h2>Posts</h2>
+    {% for post in paginator.posts %}
+    <span class="post-item"><span class="mobile-hide">{{ post.date | date: '%Y-%m-%d' }} &gt;&gt; </span><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+    {% endfor %}
+</div>
+
+<div class="post-nav">
+    {% if paginator.total_pages > 1 %}
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">&lt;- Older</a>
+    {% endif %}
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">Newer -&gt;</a>
+    {% endif %}
+    {% endif %}
+</div>
