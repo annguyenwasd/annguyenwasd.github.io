@@ -10,6 +10,10 @@
 <link rel="stylesheet" type="text/css" href="{{ '/assets/css/styles.css' | relative_url }}" />
 <link rel="stylesheet" type="text/css" href="{{ '/assets/css/prism.css' | relative_url }}" />
 <script src="{{ '/assets/js/prism.js' | relative_url }}"></script>
+{% if page.photo_prompts %}
+<link rel="stylesheet" href="{{ '/assets/css/photo-prompts.css' | relative_url }}" />
+<script defer src="{{ '/assets/js/photo-prompts.js' | relative_url }}"></script>
+{% endif %}
 {% if site.analytics.plausible.enabled %}
 <script defer data-domain="{{ site.analytics.plausible.site_fqdn }}" src="{{ site.analytics.plausible.script_source }}"></script>
 {% endif %}

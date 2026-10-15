@@ -1,0 +1,38 @@
+/* Scoped editorial styling for the AI photo-editing prompt article. */
+.photo-prompts { --pp-bg: #151c25; --pp-muted: #a8b5c4; --pp-line: #3b4855; --pp-highlight: #f5aa61; max-width: 900px; margin: 0 auto 5rem; color: #edf0f4; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.7; }
+.photo-prompts * { box-sizing: border-box; }
+.photo-prompts a { color: #f5bd83; }
+.photo-prompts h1, .photo-prompts h2, .photo-prompts strong { color: #f6f7fb; }
+.photo-prompts-hero { padding: 3rem 0 2.2rem; border-bottom: 1px solid var(--pp-line); }
+.photo-prompts-kicker { font-size: .74rem; color: var(--pp-highlight); font-weight: 750; letter-spacing: .19em; }
+.photo-prompts-hero h1 { margin: .65rem 0 1rem; font-size: clamp(2rem, 5.1vw, 3.75rem); letter-spacing: -.046em; line-height: 1.14; font-weight: 800; }
+.photo-prompts-lead { color: #ccd5df; max-width: 760px; font-size: 1.08rem; line-height: 1.8; }
+.photo-prompts-meta { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.45rem; }
+.photo-prompts-meta span { padding: .15rem .65rem; font-size: .75rem; color: #d1d8e0; border: 1px solid var(--pp-line); border-radius: 999px; }
+.photo-prompts-toc { margin: 2rem 0 1.5rem; }
+.photo-prompts-toc>p { font-size: .8rem; font-weight: 750; text-transform: uppercase; color: var(--pp-muted); letter-spacing: .12em; margin: 0 0 .75rem; }
+.photo-prompts-toc-links { display: flex; flex-wrap: wrap; gap: .52rem; }
+.photo-prompts-toc-links a { text-decoration: none; border-radius: 7px; padding: .34rem .7rem; font-size: .78rem; border: 1px solid var(--pp-line); color: #dae0e6; background: #303d4b; transition: border-color .15s ease, background .15s ease; }
+.photo-prompts-toc-links a:hover { background: #3c4a59; border-color: var(--pp-highlight); }
+.photo-prompts-note { color: #c2cfda; padding: 1rem 1.15rem; background: #293744; border-left: 3px solid var(--pp-highlight); border-radius: 0 8px 8px 0; font-size: .9rem; }
+.photo-prompt-item { padding-top: 3.2rem; margin-top: 1.65rem; border-top: 1px solid var(--pp-line); scroll-margin-top: 1rem; }
+.photo-prompt-heading { display: flex; gap: 1.15rem; align-items: flex-start; margin-bottom: 1.35rem; }
+.photo-prompt-number { font-size: clamp(2.4rem, 8vw, 4rem); line-height: 1; font-weight: 800; letter-spacing: -.065em; color: var(--pp-highlight); font-variant-numeric: tabular-nums; }
+.photo-prompt-heading h2 { font-size: clamp(1.36rem, 3vw, 2rem); letter-spacing: -.035em; font-weight: 750; margin: 0 0 .25rem; padding: 0; line-height: 1.25; }
+.photo-prompt-heading p { color: #bac6d1; font-size: .91rem; line-height: 1.65; }
+.photo-prompt-figure { margin: 0 0 1.1rem; }
+.photo-prompt-figure img { display: block; width: 100%; height: auto; border: 1px solid #54606d; border-radius: 12px; background: #0d1117; }
+.photo-prompt-figure figcaption { font-size: .75rem; text-align: center; color: var(--pp-muted); margin-top: .5rem; }
+.photo-prompt-codebox { overflow: hidden; border: 1px solid #485461; border-radius: 11px; background: #111821; }
+.photo-prompt-codebar { background: #293542; display: flex; align-items: center; justify-content: space-between; padding: .6rem .8rem .6rem 1.1rem; gap: 1rem; }
+.photo-prompt-codebar>span { font-size: .76rem; color: #c3ced8; font-weight: 700; text-transform: uppercase; letter-spacing: .065em; }
+.photo-prompt-copy { border: 1px solid #697b8e; background: #37495b; color: #fff; border-radius: 6px; padding: .27rem .78rem; font-weight: 650; font-size: .79rem; cursor: pointer; min-width: 90px; line-height: 1.6; transition: background .15s ease; }
+.photo-prompt-copy:hover, .photo-prompt-copy:focus-visible { background: #536a80; outline-offset: 2px; }
+.photo-prompt-copy[data-copied="true"] { border-color: #7ec6b0; color: #bcf3e2; }
+.photo-prompt-codebox pre { margin: 0; padding: 1.15rem; max-height: 380px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.75; }
+.photo-prompt-codebox pre code { display: block; padding: 0; color: #dce7ef; font-size: .84rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; background: none; white-space: pre-wrap; vertical-align: initial; }
+.photo-prompts-rights { font-size: .81rem; margin-top: .8rem; color: #ddc4a7; }
+.photo-prompt-toplink { display: inline-block; text-decoration: none; font-size: .8rem; margin-top: .95rem; }
+.photo-prompts-footer { border-top: 1px solid var(--pp-line); margin-top: 3rem; padding-top: 1.5rem; color: #b7c3d0; font-size: .85rem; }
+.photo-prompts-footer p + p { margin-top: .7rem; }
+@media (max-width: 540px) { .photo-prompts-hero { padding-top: 1.2rem; } .photo-prompt-item { padding-top: 2.5rem; } .photo-prompt-heading { gap: .75rem; } .photo-prompt-number { min-width: 2.6rem; } .photo-prompt-codebox pre { max-height: 320px; padding: .95rem; } .photo-prompt-codebox pre code { font-size: .75rem; } }
