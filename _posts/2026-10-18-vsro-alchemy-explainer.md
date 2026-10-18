@@ -4,6 +4,8 @@ lang: vi
 title: "Cơ chế đập đồ vSRO: công thức thật nằm trong code server"
 description: "Dịch ngược SR_GameServer.exe của gói vSRO 2022 để trả lời câu hỏi đập đồ: ngưỡng thành công tính thế nào, Lucky cộng bao nhiêu điểm, và vì sao không thể canh số."
 date: 2026-10-18
+translations:
+  en: /blog/en/vsro-alchemy-explainer/
 ---
 
 ![Trang chủ công cụ vSRO Alchemy Explainer]({{ '/assets/images/posts/alchemy-explainer.png' | relative_url }})

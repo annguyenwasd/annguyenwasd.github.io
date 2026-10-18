@@ -13,7 +13,7 @@
 })();
 </script>
 {% if page.translations %}
-<script>window.__PAGE_TRANSLATIONS__ = {{ page.translations | json }};</script>
+<script>window.__PAGE_TRANSLATIONS__ = {{ page.translations | jsonify }};</script>
 {% endif %}
 {% seo %}
 {% if site.keywords or page.tags %}
