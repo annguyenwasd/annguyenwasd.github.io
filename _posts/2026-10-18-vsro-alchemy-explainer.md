@@ -10,7 +10,7 @@ date: 2026-10-18
 
 Hỏi bất kỳ ai đập đồ Silkroad về mẹo tăng cộng, bạn sẽ nhận được đủ loại nghi lễ: chờ giờ đẹp, chờ server vắng, đổi map, tháo phụ kiện trước khi đập... Sau khi dịch ngược `SR_GameServer.exe` của gói **vSRO 2022**, hóa ra một lần nâng cộng chỉ gồm **một phép cộng và một lần quay số** — không có biến nào mang tên "giờ đẹp".
 
-Bài viết này giới thiệu [vSRO Alchemy Explainer](https://vsro-alchemy-explainer.netlify.app/), trang mình dựng từ kết quả phân tích đó, kèm [bảng tính](https://vsro-alchemy-explainer.netlify.app/calculator.html) ngưỡng thành công và [bộ mô phỏng](https://vsro-alchemy-explainer.netlify.app/simulator.html) đập đồ. Toàn bộ bằng chứng — địa chỉ hàm, Evidence ID, 98 bản ghi — nằm trong [báo cáo công khai trên GitHub](https://github.com/annguyenwasd/sro-wiki/tree/main/reports/vsro-2022-alchemy).
+Bài viết này giới thiệu [vSRO Alchemy Explainer](https://vsro-alchemy-explainer.netlify.app/), trang mình dựng từ kết quả phân tích đó, kèm [bảng tính](https://vsro-alchemy-explainer.netlify.app/calculator.html) ngưỡng thành công và [bộ mô phỏng](https://vsro-alchemy-explainer.netlify.app/simulator.html) đập đồ. Toàn bộ bằng chứng — địa chỉ hàm, Evidence ID, 98 bản ghi — được ghi lại trong báo cáo kỹ thuật của repo phân tích (riêng, chưa công khai).
 
 ## Một lần nâng cộng diễn ra thế nào
 
