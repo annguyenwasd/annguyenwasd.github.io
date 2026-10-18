@@ -62,8 +62,35 @@
     }
   }
 
+  /* Homepage list: show posts in the active language. A post in another
+     language stays visible only when its counterpart for the active
+     language is missing from the list. */
+  function applyPostFilter(lang) {
+    var items = document.querySelectorAll('.post-item[data-lang]');
+    if (!items.length) return;
+    var localUrls = {};
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].getAttribute('data-lang') !== lang) continue;
+      var link = items[i].querySelector('a[href]');
+      if (link) localUrls[link.getAttribute('href')] = true;
+    }
+    for (var j = 0; j < items.length; j++) {
+      var itemLang = items[j].getAttribute('data-lang');
+      var hide = false;
+      if (itemLang !== lang) {
+        var translations = null;
+        try { translations = JSON.parse(items[j].getAttribute('data-translations') || 'null'); } catch (err) {}
+        var counterpart = translations ? translations[lang] : null;
+        hide = !!counterpart && !!localUrls[counterpart];
+      }
+      if (hide) items[j].setAttribute('hidden', '');
+      else items[j].removeAttribute('hidden');
+    }
+  }
+
   function applyLang() {
-    var dict = I18N[currentLang()];
+    var lang = currentLang();
+    var dict = I18N[lang];
     var nodes = document.querySelectorAll('[data-i18n]');
     for (var i = 0; i < nodes.length; i++) {
       var key = nodes[i].getAttribute('data-i18n');
@@ -71,7 +98,8 @@
         nodes[i].textContent = dict[key];
       }
     }
-    setActive('data-lang-choice', currentLang());
+    applyPostFilter(lang);
+    setActive('data-lang-choice', lang);
   }
 
   function applyTheme(theme) {
