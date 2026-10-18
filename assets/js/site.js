@@ -15,6 +15,7 @@
       'footer.license': 'Theme theo giấy phép',
       'footer.updated': 'Cập nhật',
       'about.role': 'Kỹ sư phần mềm.',
+      'about.github': 'Trang GitHub của tôi',
       'notfound.title': 'Không tìm thấy trang',
       'notfound.body': 'Trang này không tồn tại. Quay về',
       'notfound.home': 'trang chủ'
@@ -31,6 +32,7 @@
       'footer.license': 'Theme licensed under',
       'footer.updated': 'Site updated',
       'about.role': 'Software engineer.',
+      'about.github': 'My GitHub profile',
       'notfound.title': 'Page not found',
       'notfound.body': 'That page does not exist. Return to the',
       'notfound.home': 'home page'
