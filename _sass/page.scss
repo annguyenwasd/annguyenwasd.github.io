@@ -8,7 +8,7 @@ html {
 /* 01 Font family */
 
 body {
-  font-family: "Courier New", "Helvetica", sans-serif;
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
 }
 
 /* 03 Spacing */
@@ -24,6 +24,11 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
   line-height: 30px;
+}
+
+/* Reading measure for text pages; wide-figured articles opt out */
+.main-content > *:not(.photo-prompts) {
+  max-width: 45rem;
 }
 
 div.main-content h2 {
@@ -62,7 +67,7 @@ code {
 /* 06 Primary color */
 
 a {
-  color: #7e92a2;
+  color: #93a9ba;
 }
 
 /* 07 Secondary colors */
