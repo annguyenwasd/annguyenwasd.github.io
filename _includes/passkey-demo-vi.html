@@ -1,0 +1,232 @@
+<div id="pkd" class="pkd">
+  <div class="pkd-tabs" role="tablist" aria-label="Luồng passkey">
+    <button class="pkd-tab" id="pkd-tab-reg" role="tab" aria-controls="pkd-panel-reg" aria-selected="true" type="button">1 · Tạo passkey</button>
+    <button class="pkd-tab" id="pkd-tab-login" role="tab" aria-controls="pkd-panel-login" aria-selected="false" type="button">2 · Đăng nhập</button>
+  </div>
+
+  <div id="pkd-panel-reg" role="tabpanel" aria-labelledby="pkd-tab-reg">
+    <p class="pkd-caption">Giai đoạn làm một lần cho mỗi tài khoản: thiết bị tạo cặp khóa, server chỉ nhận public key.</p>
+    <div class="pkd-actors" id="pkd-actors-reg">
+      <div class="pkd-actor">Trình duyệt</div>
+      <div class="pkd-actor">Authenticator<span class="pkd-sub">Touch ID · YubiKey · điện thoại</span></div>
+      <div class="pkd-actor">Server<span class="pkd-sub">web.example.com</span></div>
+    </div>
+    <svg class="pkd-seq" id="pkd-svg-reg" role="img" aria-label="Sơ đồ trình tự tạo passkey giữa trình duyệt, authenticator và server"></svg>
+    <div class="pkd-controls">
+      <button type="button" class="pkd-btn" id="pkd-prev-reg">← Trước</button>
+      <button type="button" class="pkd-btn pkd-btn-primary" id="pkd-next-reg">Sau →</button>
+      <span class="pkd-stepnum" id="pkd-num-reg"></span>
+    </div>
+    <div class="pkd-detail" id="pkd-detail-reg" aria-live="polite"></div>
+  </div>
+
+  <div id="pkd-panel-login" role="tabpanel" aria-labelledby="pkd-tab-login" hidden>
+    <p class="pkd-caption">Giai đoạn lặp lại mỗi lần đăng nhập: chữ ký trên một challenge mới chứng minh bạn đang giữ private key.</p>
+    <div class="pkd-actors" id="pkd-actors-login">
+      <div class="pkd-actor">Trình duyệt</div>
+      <div class="pkd-actor">Authenticator<span class="pkd-sub">Touch ID · YubiKey · điện thoại</span></div>
+      <div class="pkd-actor">Server<span class="pkd-sub">web.example.com</span></div>
+    </div>
+    <svg class="pkd-seq" id="pkd-svg-login" role="img" aria-label="Sơ đồ trình tự đăng nhập bằng passkey giữa trình duyệt, authenticator và server"></svg>
+    <div class="pkd-controls">
+      <button type="button" class="pkd-btn" id="pkd-prev-login">← Trước</button>
+      <button type="button" class="pkd-btn pkd-btn-primary" id="pkd-next-login">Sau →</button>
+      <span class="pkd-stepnum" id="pkd-num-login"></span>
+    </div>
+    <div class="pkd-detail" id="pkd-detail-login" aria-live="polite"></div>
+  </div>
+
+  <style>
+  #pkd { border: 1px solid var(--border-faint); border-radius: 10px; padding: 14px 16px 16px; margin: 15px 0; line-height: 1.5; }
+  #pkd .pkd-tabs { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  #pkd .pkd-tab { font: inherit; font-size: 0.75rem; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border-faint); background: transparent; color: var(--color-text); cursor: pointer; }
+  #pkd .pkd-tab[aria-selected="true"] { background: var(--color-link); border-color: var(--color-link); color: var(--color-bg); }
+  #pkd .pkd-caption { font-size: 0.75rem; opacity: 0.75; margin: 4px 0 10px; }
+  #pkd .pkd-actors { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; text-align: center; }
+  #pkd .pkd-actor { display: flex; flex-direction: column; align-items: center; font-size: 0.8rem; color: var(--color-text); opacity: 0.6; transition: opacity .2s ease; }
+  #pkd .pkd-actor .pkd-sub { font-size: 0.68rem; opacity: 0.8; }
+  #pkd .pkd-actor.pkd-hot { opacity: 1; font-weight: 500; color: var(--color-heading); }
+  #pkd .pkd-seq { display: block; width: 100%; margin-top: 4px; }
+  #pkd .pkd-seq text { font-size: 12.5px; fill: var(--color-text); }
+  #pkd .pkd-seq .pkd-life { stroke: var(--border-faint); stroke-width: 1; stroke-dasharray: 3 4; }
+  #pkd .pkd-seq .pkd-done { opacity: 0.45; }
+  #pkd .pkd-seq .pkd-done-line { stroke: var(--color-text); stroke-width: 1.25; }
+  #pkd .pkd-seq .pkd-done-head { fill: var(--color-text); }
+  #pkd .pkd-seq .pkd-cur text { font-weight: 500; fill: var(--color-heading); }
+  #pkd .pkd-seq .pkd-cur-line { stroke: var(--color-link); stroke-width: 2; }
+  #pkd .pkd-seq .pkd-cur-head { fill: var(--color-link); }
+  #pkd .pkd-seq .pkd-note { fill: var(--border-faint); fill: color-mix(in srgb, var(--color-text) 8%, transparent); }
+  #pkd .pkd-controls { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+  #pkd .pkd-btn { font: inherit; font-size: 0.75rem; padding: 4px 14px; border-radius: 6px; border: 1px solid var(--border-faint); background: transparent; color: var(--color-text); cursor: pointer; }
+  #pkd .pkd-btn-primary { background: var(--color-link); border-color: var(--color-link); color: var(--color-bg); }
+  #pkd .pkd-btn:disabled { opacity: 0.35; cursor: default; }
+  #pkd .pkd-stepnum { font-size: 0.72rem; opacity: 0.7; margin-left: auto; }
+  #pkd .pkd-detail { margin-top: 8px; border-top: 1px solid var(--border-faint); padding-top: 8px; font-size: 0.82rem; }
+  #pkd .pkd-detail p { margin: 0 0 8px; }
+  #pkd .pkd-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  #pkd .pkd-badge { font-size: 0.68rem; border: 1px solid var(--border-faint); border-radius: 999px; padding: 2px 10px; white-space: nowrap; }
+  </style>
+
+  <script>
+  (function () {
+    var PHASES = {
+      reg: [
+        { a: 0, b: 2, name: 'Bắt đầu đăng ký', label: 'yêu cầu tạo passkey',
+          detail: 'Bạn chọn "Tạo passkey" trên web.example.com. Trình duyệt gọi WebAuthn API: navigator.credentials.create().',
+          chips: ['username', 'navigator.credentials.create()'] },
+        { a: 2, b: 0, name: 'Server gửi challenge', label: 'challenge + rpId',
+          detail: 'Server tạo challenge — khoảng 32 byte ngẫu nhiên dùng đúng một lần — kèm rpId (tên miền) và thông tin user, gửi về trình duyệt.',
+          chips: ['challenge (32 byte random)', 'rpId = web.example.com', 'userId'] },
+        { a: 0, b: 1, name: 'Xác minh người dùng', label: 'xác minh sinh trắc',
+          detail: 'Trình duyệt chuyển yêu cầu xuống authenticator (Touch ID, YubiKey, điện thoại…). Authenticator yêu cầu vân tay / khuôn mặt / PIN.',
+          chips: ['WebAuthn create()', 'vân tay / PIN'] },
+        { a: 1, b: 0, name: 'Tạo cặp khóa', label: 'cặp khóa + chữ ký',
+          detail: 'Authenticator tạo cặp khóa mới. Private key ở lại trong authenticator, không bao giờ rời thiết bị. Nó ký challenge bằng private key rồi trả về public key, credential ID và chữ ký.',
+          chips: ['publicKey', 'credentialId', 'signature', 'privateKey — giữ lại thiết bị'] },
+        { a: 0, b: 2, name: 'Gửi public key', label: 'gửi public key + chữ ký',
+          detail: 'Trình duyệt gửi public key, credential ID và chữ ký lên server — private key không bao giờ được gửi đi.',
+          chips: ['publicKey', 'credentialId', 'signature'] },
+        { self: 2, name: 'Hoàn tất', label: 'server lưu public key ✓',
+          detail: 'Server kiểm tra chữ ký khớp với challenge mình đã tạo, rồi lưu public key + credential ID vào tài khoản. Từ giờ đăng nhập không cần mật khẩu.',
+          chips: ['server chỉ lưu public key'] }
+      ],
+      login: [
+        { a: 0, b: 2, name: 'Yêu cầu đăng nhập', label: 'yêu cầu đăng nhập',
+          detail: 'Bạn chọn "Đăng nhập bằng passkey" — không gõ mật khẩu. Trình duyệt gọi navigator.credentials.get().',
+          chips: ['navigator.credentials.get()'] },
+        { a: 2, b: 0, name: 'Server gửi challenge mới', label: 'challenge mới',
+          detail: 'Server tạo challenge ngẫu nhiên hoàn toàn mới (không bao giờ lặp lại) cùng danh sách credential ID đã đăng ký cho tài khoản.',
+          chips: ['challenge (mới)', 'allowCredentials'] },
+        { a: 0, b: 1, name: 'Authenticator xác minh', label: 'chọn passkey + sinh trắc',
+          detail: 'Trình duyệt chỉ chọn passkey có rpId trùng đúng tên miền — trang giả mạo sẽ không khớp. Bạn xác minh vân tay / khuôn mặt / PIN.',
+          chips: ['rpId khớp domain → chống phishing', 'Touch ID'] },
+        { a: 1, b: 0, name: 'Ký bằng private key', label: 'ký challenge',
+          detail: 'Authenticator dùng private key ký challenge, tạo assertion gồm chữ ký, credential ID và bộ đếm.',
+          chips: ['signature', 'credentialId', 'signCounter'] },
+        { a: 0, b: 2, name: 'Gửi assertion', label: 'gửi assertion',
+          detail: 'Trình duyệt gửi assertion lên server kèm origin — tên miền thực tế của trang đang chạy.',
+          chips: ['signature', 'credentialId', 'origin'] },
+        { self: 2, name: 'Server xác minh', label: 'xác minh chữ ký ✓',
+          detail: 'Server dùng public key lưu từ lúc đăng ký để kiểm tra chữ ký trên challenge. Đúng → tạo phiên đăng nhập. Server không có secret nào để bị đánh cắp.',
+          chips: ['verify(publicKey, signature)', 'session ✓'] }
+      ]
+    };
+
+    var ui = {
+      reg: { panel: 'pkd-panel-reg', svg: 'pkd-svg-reg', actors: 'pkd-actors-reg', prev: 'pkd-prev-reg', next: 'pkd-next-reg', num: 'pkd-num-reg', detail: 'pkd-detail-reg' },
+      login: { panel: 'pkd-panel-login', svg: 'pkd-svg-login', actors: 'pkd-actors-login', prev: 'pkd-prev-login', next: 'pkd-next-login', num: 'pkd-num-login', detail: 'pkd-detail-login' }
+    };
+    var cur = { reg: 0, login: 0 };
+    var active = 'reg';
+    var reduceMotion = false;
+    try { reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+    function hot(phase, st) {
+      var kids = document.getElementById(ui[phase].actors).children;
+      var idx = (st.self !== undefined) ? [st.self] : [st.a, st.b];
+      for (var k = 0; k < kids.length; k++) kids[k].classList.toggle('pkd-hot', idx.indexOf(k) >= 0);
+    }
+
+    function draw(phase, animate) {
+      var u = ui[phase], svg = document.getElementById(u.svg);
+      if (!svg || svg.offsetParent === null) return;
+      var W = svg.clientWidth;
+      if (!W) return;
+      var xs = [W / 6, W / 2, W * 5 / 6];
+      var steps = PHASES[phase], c = cur[phase];
+      var y0 = 22, dy = 50;
+      var H = y0 + c * dy + 40;
+      svg.setAttribute('viewBox', '0 0 ' + Math.round(W) + ' ' + H);
+      svg.setAttribute('height', H);
+      var out = '';
+      for (var k = 0; k < 3; k++) out += '<line class="pkd-life" x1="' + xs[k] + '" y1="4" x2="' + xs[k] + '" y2="' + (H - 8) + '"/>';
+      for (var i = 0; i <= c; i++) {
+        var st = steps[i], y = y0 + i * dy, cls = (i === c) ? 'pkd-cur' : 'pkd-done';
+        if (st.self !== undefined) {
+          var cw = Math.min(240, W - 16);
+          var cx = Math.max(8 + cw / 2, Math.min(xs[st.self], W - 8 - cw / 2));
+          out += '<g class="' + cls + '"><rect class="pkd-note" x="' + (cx - cw / 2) + '" y="' + (y - 14) + '" width="' + cw + '" height="28" rx="7"/>' +
+                 '<text x="' + cx + '" y="' + (y + 4) + '" text-anchor="middle">' + (i + 1) + ' · ' + esc(st.label) + '</text></g>';
+        } else {
+          var x1 = xs[st.a], x2 = xs[st.b], d = x2 > x1 ? 1 : -1;
+          var sx = x1 + 8 * d, ex = x2 - 14 * d;
+          out += '<g class="' + cls + '">' +
+                 '<line class="' + (i === c ? 'pkd-cur-line' : 'pkd-done-line') + '" x1="' + sx + '" y1="' + y + '" x2="' + ex + '" y2="' + y + '"/>' +
+                 '<polygon class="' + (i === c ? 'pkd-cur-head' : 'pkd-done-head') + '" points="' + ex + ',' + y + ' ' + (ex - 9 * d) + ',' + (y - 4.5) + ' ' + (ex - 9 * d) + ',' + (y + 4.5) + '"/>' +
+                 '<text x="' + ((sx + ex) / 2) + '" y="' + (y - 8) + '" text-anchor="middle">' + (i + 1) + ' · ' + esc(st.label) + '</text></g>';
+        }
+      }
+      svg.innerHTML = out;
+      if (animate && !reduceMotion) {
+        var ln = svg.querySelector('.pkd-cur-line');
+        if (ln) {
+          try {
+            var L = ln.getTotalLength();
+            ln.style.strokeDasharray = L + ' ' + L;
+            ln.style.strokeDashoffset = L;
+            ln.getBoundingClientRect();
+            ln.style.transition = 'stroke-dashoffset .45s ease';
+            requestAnimationFrame(function () { ln.style.strokeDashoffset = '0'; });
+          } catch (e) {}
+        }
+        var g = svg.querySelector('.pkd-cur');
+        if (g) {
+          g.style.opacity = '0';
+          g.getBoundingClientRect();
+          g.style.transition = 'opacity .45s ease';
+          requestAnimationFrame(function () { g.style.opacity = '1'; });
+        }
+      }
+      hot(phase, steps[c]);
+    }
+
+    function updateUI(phase) {
+      var u = ui[phase], steps = PHASES[phase], i = cur[phase], st = steps[i];
+      document.getElementById(u.num).textContent = 'Bước ' + (i + 1) + ' / ' + steps.length;
+      document.getElementById(u.prev).disabled = (i === 0);
+      document.getElementById(u.next).disabled = (i === steps.length - 1);
+      var chips = st.chips.map(function (c) { return '<span class="pkd-badge">' + esc(c) + '</span>'; }).join('');
+      document.getElementById(u.detail).innerHTML =
+        '<p><strong>' + esc(st.name) + '.</strong> ' + esc(st.detail) + '</p>' +
+        '<div class="pkd-chips">' + chips + '</div>';
+    }
+
+    function go(phase, delta) {
+      var n = PHASES[phase].length, v = cur[phase] + delta;
+      if (v < 0 || v >= n) return;
+      cur[phase] = v;
+      draw(phase, true);
+      updateUI(phase);
+    }
+
+    function showTab(phase) {
+      active = phase;
+      document.getElementById('pkd-tab-reg').setAttribute('aria-selected', phase === 'reg' ? 'true' : 'false');
+      document.getElementById('pkd-tab-login').setAttribute('aria-selected', phase === 'login' ? 'true' : 'false');
+      document.getElementById(ui.reg.panel).hidden = (phase !== 'reg');
+      document.getElementById(ui.login.panel).hidden = (phase !== 'login');
+      draw(phase, false);
+      updateUI(phase);
+    }
+
+    document.getElementById('pkd-tab-reg').addEventListener('click', function () { showTab('reg'); });
+    document.getElementById('pkd-tab-login').addEventListener('click', function () { showTab('login'); });
+    ['reg', 'login'].forEach(function (p) {
+      document.getElementById(ui[p].prev).addEventListener('click', function () { go(p, -1); });
+      document.getElementById(ui[p].next).addEventListener('click', function () { go(p, 1); });
+    });
+
+    ['reg', 'login'].forEach(function (p) { draw(p, false); updateUI(p); });
+
+    var raf = null;
+    var ro = new ResizeObserver(function () {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function () { draw(active, false); });
+    });
+    ro.observe(document.getElementById(ui.reg.svg));
+    ro.observe(document.getElementById(ui.login.svg));
+  })();
+  </script>
+</div>
