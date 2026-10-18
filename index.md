@@ -1,12 +1,10 @@
 ---
 layout: default
-title: About
-description: About An Nguyen Van Chuc
+description: Blog posts by An Nguyen Van Chuc
 ---
 
-<div class="profile">
-  <h2>An Nguyen Van Chuc</h2>
-
-  <p>Software engineer.</p>
-
+<div class="post-summary">
+    {% for post in site.posts %}
+    <span class="post-item"><span class="mobile-hide">{{ post.date | date: '%Y-%m-%d' }} &gt;&gt; </span><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+    {% endfor %}
 </div>

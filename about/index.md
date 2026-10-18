@@ -1,9 +1,12 @@
 ---
 layout: default
 title: About
+description: About An Nguyen Van Chuc
 permalink: /about/
 ---
 
-<h2>About</h2>
+<div class="profile">
+  <h2>An Nguyen Van Chuc</h2>
 
-<p>The About and Contact page now lives on the <a href="{{ '/' | relative_url }}">home page</a>.</p>
+  <p>Software engineer.</p>
+</div>

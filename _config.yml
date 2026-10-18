@@ -3,6 +3,7 @@ description: About An Nguyen Van Chuc
 url: https://annguyenwasd.github.io
 baseurl: ""
 author: An Nguyen Van Chuc
+permalink: /blog/:slug/
 timezone: Asia/Ho_Chi_Minh
 timezone_short: ICT
 lang: en
