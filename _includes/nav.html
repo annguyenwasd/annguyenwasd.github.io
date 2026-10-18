@@ -1,5 +1,18 @@
 <nav>
+    <div class="nav-links">
     {% for item in site.data.nav %}
-    <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
+        <a href="{{ item.link | relative_url }}"><span data-i18n="nav.{{ item.key }}">{{ item.vi }}</span></a>
     {% endfor %}
+    </div>
+    <div class="nav-controls">
+        <div class="lang-toggle" role="group" aria-label="Ngôn ngữ / Language">
+            <button type="button" data-lang-choice="vi" aria-pressed="false">VI</button>
+            <button type="button" data-lang-choice="en" aria-pressed="false">EN</button>
+        </div>
+        <div class="theme-toggle" role="group" aria-label="Chủ đề / Theme">
+            <button type="button" data-theme-choice="system" aria-pressed="false"><span data-i18n="theme.system">Hệ thống</span></button>
+            <button type="button" data-theme-choice="light" aria-pressed="false"><span data-i18n="theme.light">Sáng</span></button>
+            <button type="button" data-theme-choice="dark" aria-pressed="false"><span data-i18n="theme.dark">Tối</span></button>
+        </div>
+    </div>
 </nav>

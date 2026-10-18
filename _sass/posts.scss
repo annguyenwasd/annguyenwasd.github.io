@@ -24,3 +24,16 @@
 .post-desc {
   font-size: 0.95rem;
 }
+
+.lang-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 6px;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+  border: 1px solid var(--border-faint);
+  border-radius: 3px;
+  opacity: 0.8;
+}

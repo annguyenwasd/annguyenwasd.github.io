@@ -1,0 +1,31 @@
+/* Site palette. Dark is the base; light applies for an explicit
+   data-theme="light" choice or when no choice is stored and the OS
+   prefers light. */
+
+@mixin theme-light {
+  --color-bg: #f4f5f7;
+  --color-text: #3a434c;
+  --color-heading: #242c34;
+  --color-link: #3e6785;
+  --border-faint: rgba(58, 67, 76, 0.3);
+  color-scheme: light;
+}
+
+:root {
+  --color-bg: #282f3a;
+  --color-text: #c5ccce;
+  --color-heading: #dcdede;
+  --color-link: #93a9ba;
+  --border-faint: rgba(197, 204, 206, 0.35);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    @include theme-light;
+  }
+}
+
+:root[data-theme="light"] {
+  @include theme-light;
+}

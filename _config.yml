@@ -1,12 +1,12 @@
 name: An Nguyen Van Chuc
-description: Software engineer. Notes on the web, tooling, and AI.
+description: Kỹ sư phần mềm. Ghi chép về web, công cụ và AI.
 url: https://annguyenwasd.github.io
 baseurl: ""
 author: An Nguyen Van Chuc
 permalink: /blog/:slug/
 timezone: Asia/Ho_Chi_Minh
 timezone_short: ICT
-lang: en
+lang: vi
 
 keywords:
   - An Nguyen Van Chuc

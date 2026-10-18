@@ -1,4 +1,8 @@
-- name: Posts
+- key: posts
+  vi: Bài viết
+  en: Posts
   link: /
-- name: About
+- key: about
+  vi: Giới thiệu
+  en: About
   link: /about/

@@ -43,14 +43,14 @@ header h1, h5 {
 /* 04 Color and contrast */
 
 body {
-  color: #c5ccce;
-  background-color: #282f3a;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 h1,
 h2,
 strong {
-  color: #dcdede;
+  color: var(--color-heading);
 }
 
 header h5 {
@@ -67,7 +67,7 @@ code {
 /* 06 Primary color */
 
 a {
-  color: #93a9ba;
+  color: var(--color-link);
 }
 
 /* 07 Secondary colors */

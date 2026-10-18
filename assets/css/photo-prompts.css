@@ -36,3 +36,18 @@
 .photo-prompts-footer { border-top: 1px solid var(--pp-line); margin-top: 3rem; padding-top: 1.5rem; color: #b7c3d0; font-size: .85rem; }
 .photo-prompts-footer p + p { margin-top: .7rem; }
 @media (max-width: 540px) { .photo-prompts-hero { padding-top: 1.2rem; } .photo-prompt-item { padding-top: 2.5rem; } .photo-prompt-heading { gap: .75rem; } .photo-prompt-number { min-width: 2.6rem; } .photo-prompt-codebox pre { max-height: 320px; padding: .95rem; } .photo-prompt-codebox pre code { font-size: .75rem; } }
+
+/* The article's light text was designed against the site's dark background;
+   when the site theme is light, paint the card's own dark background. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .photo-prompts {
+    background: var(--pp-bg);
+    padding: 0.5rem 2rem 2rem;
+    border-radius: 16px;
+  }
+}
+:root[data-theme="light"] .photo-prompts {
+  background: var(--pp-bg);
+  padding: 0.5rem 2rem 2rem;
+  border-radius: 16px;
+}

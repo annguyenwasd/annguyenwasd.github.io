@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="post-info">
     <h2>{{ page.title }}</h2>
-    <p>{{ page.date | date: '%B %-d, %Y' }}</p>
+    <p>{{ page.date | date: '%Y-%m-%d' }}<span class="lang-badge">{{ page.lang | default: site.lang | default: 'vi' | upcase }}</span></p>
 </div>
 
 <div class="post-content">
