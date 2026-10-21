@@ -9,11 +9,11 @@ translations:
   vi: /blog/vsro-alchemy-explainer/
 ---
 
-![Home page of the vSRO Alchemy Explainer tool]({{ '/assets/images/posts/alchemy-explainer.png' | relative_url }})
+![The principles page of Golden Silkroad Online]({{ '/assets/images/posts/alchemy-explainer.png' | relative_url }})
 
 Ask anyone who plays Silkroad for tips on upgrading gear and you'll get every ritual there is: waiting for the right hour, waiting for an empty server, changing maps, unequipping accessories before smashing... After reverse-engineering the `SR_GameServer.exe` of the **vSRO 2022** package, it turns out a single upgrade attempt is just **one addition and one dice roll** — there is no variable named "lucky hour".
 
-This post introduces [vSRO Alchemy Explainer](https://vsro-alchemy-explainer.netlify.app/), a page I built from the results of that analysis, along with a [calculator](https://vsro-alchemy-explainer.netlify.app/calculator.html) for success thresholds and a [simulator](https://vsro-alchemy-explainer.netlify.app/simulator.html) for upgrade attempts. The full evidence — function addresses, Evidence IDs, 98 records — is documented in the technical report of the analysis repo (private, not public).
+This post introduces [Golden Silkroad Online](https://goldenonline.netlify.app/index.html), a page I built from the results of that analysis, along with a [calculator](https://goldenonline.netlify.app/calculator.html) for success thresholds and a [simulator](https://goldenonline.netlify.app/simulator.html) for upgrade attempts; the site now also has a [WTB-WTS market board](https://goldenonline.netlify.app/market.html), a [deal checker](https://goldenonline.netlify.app/deal.html) and an [event alarm](https://goldenonline.netlify.app/alarm.html). The full evidence — function addresses, Evidence IDs, 98 records — is documented in the technical report of the analysis repo (private, not public).
 
 ## How a single upgrade works
 
@@ -56,9 +56,12 @@ The server uses the Microsoft C LCG random generator and takes the remainder of 
 
 ## The tool
 
-- **[Principles](https://vsro-alchemy-explainer.netlify.app/)** — a full walkthrough of the mechanics, in Vietnamese and English.
-- **[Calculator](https://vsro-alchemy-explainer.netlify.app/calculator.html)** — enter your upgrade level, materials, Lucky and character bonuses; the editable rate fields let you mimic other servers.
-- **[Simulator](https://vsro-alchemy-explainer.netlify.app/simulator.html)** — play the gear-baiting strategy in X-ray mode, then switch to Blind to test it for yourself.
+- **[Principles](https://goldenonline.netlify.app/index.html)** — a full walkthrough of the mechanics, in Vietnamese and English.
+- **[Calculator](https://goldenonline.netlify.app/calculator.html)** — enter your upgrade level, materials, Lucky and character bonuses; the editable rate fields let you mimic other servers.
+- **[Simulator](https://goldenonline.netlify.app/simulator.html)** — play the gear-baiting strategy in X-ray mode, then switch to Blind to test it for yourself.
+- **[Market](https://goldenonline.netlify.app/market.html)** — the WTB-WTS price board from the #wtb-wts Discord channel: silk/gold rate, elixirs, gear and currencies.
+- **[Deal checker](https://goldenonline.netlify.app/deal.html)** — compare one item's price against the week's buy/sell range to see whether you're overpaying.
+- **[Event alarm](https://goldenonline.netlify.app/alarm.html)** — set how many minutes ahead to be warned; the chime follows the daily event schedule and settings stay on your device.
 
 ## Limitations
 

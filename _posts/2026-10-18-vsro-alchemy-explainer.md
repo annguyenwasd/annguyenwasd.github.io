@@ -8,11 +8,11 @@ translations:
   en: /blog/en/vsro-alchemy-explainer/
 ---
 
-![Trang chủ công cụ vSRO Alchemy Explainer]({{ '/assets/images/posts/alchemy-explainer.png' | relative_url }})
+![Trang Nguyên lý alchemy của Golden Silkroad Online]({{ '/assets/images/posts/alchemy-explainer.png' | relative_url }})
 
 Hỏi bất kỳ ai đập đồ Silkroad về mẹo tăng cộng, bạn sẽ nhận được đủ loại nghi lễ: chờ giờ đẹp, chờ server vắng, đổi map, tháo phụ kiện trước khi đập... Sau khi dịch ngược `SR_GameServer.exe` của gói **vSRO 2022**, hóa ra một lần nâng cộng chỉ gồm **một phép cộng và một lần quay số** — không có biến nào mang tên "giờ đẹp".
 
-Bài viết này giới thiệu [vSRO Alchemy Explainer](https://vsro-alchemy-explainer.netlify.app/), trang mình dựng từ kết quả phân tích đó, kèm [bảng tính](https://vsro-alchemy-explainer.netlify.app/calculator.html) ngưỡng thành công và [bộ mô phỏng](https://vsro-alchemy-explainer.netlify.app/simulator.html) đập đồ. Toàn bộ bằng chứng — địa chỉ hàm, Evidence ID, 98 bản ghi — được ghi lại trong báo cáo kỹ thuật của repo phân tích (riêng, chưa công khai).
+Bài viết này giới thiệu [Golden Silkroad Online](https://goldenonline.netlify.app/index.html), trang mình dựng từ kết quả phân tích đó, kèm [bảng tính](https://goldenonline.netlify.app/calculator.html) ngưỡng thành công và [bộ mô phỏng](https://goldenonline.netlify.app/simulator.html) đập đồ; trang giờ có thêm [bảng giá WTB-WTS](https://goldenonline.netlify.app/market.html), [kiểm tra deal](https://goldenonline.netlify.app/deal.html) và [báo thức sự kiện](https://goldenonline.netlify.app/alarm.html). Toàn bộ bằng chứng — địa chỉ hàm, Evidence ID, 98 bản ghi — được ghi lại trong báo cáo kỹ thuật của repo phân tích (riêng, chưa công khai).
 
 ## Một lần nâng cộng diễn ra thế nào
 
@@ -55,9 +55,12 @@ Server dùng bộ sinh số ngẫu nhiên LCG của Microsoft C rồi lấy ph�
 
 ## Công cụ
 
-- **[Nguyên lý](https://vsro-alchemy-explainer.netlify.app/)** — giải thích đầy đủ cơ chế, song ngữ Việt/Anh.
-- **[Bảng tính](https://vsro-alchemy-explainer.netlify.app/calculator.html)** — nhập mức cộng, nguyên liệu, Lucky, bonus nhân vật; các ô tỷ lệ chỉnh được để mô phỏng server khác.
-- **[Mô phỏng](https://vsro-alchemy-explainer.netlify.app/simulator.html)** — chơi chiến thuật "câu đồ" ở chế độ X-ray rồi chuyển sang Blind để tự kiểm chứng.
+- **[Nguyên lý](https://goldenonline.netlify.app/index.html)** — giải thích đầy đủ cơ chế, song ngữ Việt/Anh.
+- **[Bảng tính](https://goldenonline.netlify.app/calculator.html)** — nhập mức cộng, nguyên liệu, Lucky, bonus nhân vật; các ô tỷ lệ chỉnh được để mô phỏng server khác.
+- **[Mô phỏng](https://goldenonline.netlify.app/simulator.html)** — chơi chiến thuật "câu đồ" ở chế độ X-ray rồi chuyển sang Blind để tự kiểm chứng.
+- **[Thị trường](https://goldenonline.netlify.app/market.html)** — bảng giá WTB-WTS từ kênh Discord #wtb-wts: tỷ giá silk/vàng, elixir, trang bị và tiền tệ.
+- **[Kiểm tra deal](https://goldenonline.netlify.app/deal.html)** — so giá một món với khoảng mua/bán cả tuần để biết mình có bị hố không.
+- **[Báo thức sự kiện](https://goldenonline.netlify.app/alarm.html)** — chọn số phút báo trước, chuông kêu theo lịch sự kiện hằng ngày; cài đặt lưu trên máy bạn.
 
 ## Giới hạn
 
